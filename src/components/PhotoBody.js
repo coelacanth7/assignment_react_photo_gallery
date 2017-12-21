@@ -9,7 +9,7 @@ const PhotoBody = ({ myPhotos }) => {
 		picObj.img = pic.display_src;
 		picObj.link = pic.code;
 		picObj.likes = pic.likes.count;
-		picObj.username = "coelacanth7";
+		picObj.username = pic.username;
 		picObj.date = new Date(pic.date * 1000).toDateString();
 
 		return <PictureCard picObj={picObj} key={index} />;
