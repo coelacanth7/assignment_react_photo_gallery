@@ -5,6 +5,8 @@ import MyPhotos from "../data/coelacanth7.js";
 const photos = Photos.data;
 const myPhotos = MyPhotos.user.media.nodes;
 
+// Sort the photos here:
+
 const MainApp = () => {
 	return (
 		<div className="container">
