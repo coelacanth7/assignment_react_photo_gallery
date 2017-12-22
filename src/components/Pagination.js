@@ -12,7 +12,6 @@ const Pagination = ({ numPhotos, currentPage, onChange }) => {
 	}
 	return (
 		<select className="form-control" onChange={onChange}>
-			<option value={currentPage}>{currentPage}</option>
 			{pages}
 		</select>
 	);
