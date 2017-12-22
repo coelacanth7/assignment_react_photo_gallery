@@ -1,6 +1,7 @@
 import React from "react";
 import PictureCard from "./PictureCard";
 import Pagination from "./Pagination";
+import { searchPhotos } from "../helpers/helpers.js";
 
 class PhotoBody extends React.Component {
 	constructor() {
@@ -17,18 +18,25 @@ class PhotoBody extends React.Component {
 	};
 
 	render() {
-		const myPics = this.props.myPhotos.map((pic, index) => {
-			const picObj = {};
-			picObj.caption = pic.caption ? pic.caption : "";
-			picObj.comments = pic.comments.count;
-			picObj.img = pic.display_src;
-			picObj.link = pic.code;
-			picObj.likes = pic.likes.count;
-			picObj.username = pic.username;
-			picObj.date = new Date(pic.date * 1000).toDateString();
+		const Pics = searchPhotos(this.props.myPhotos, this.props.search);
+		var myPics;
 
-			return <PictureCard picObj={picObj} key={index} />;
-		});
+		if (Pics) {
+			myPics = Pics.map((pic, index) => {
+				const picObj = {};
+				picObj.caption = pic.caption ? pic.caption : "";
+				picObj.comments = pic.comments.count;
+				picObj.img = pic.display_src;
+				picObj.link = pic.code;
+				picObj.likes = pic.likes.count;
+				picObj.username = pic.username;
+				picObj.date = new Date(pic.date * 1000).toDateString();
+
+				return <PictureCard picObj={picObj} key={index} />;
+			});
+		} else {
+			myPics = "no pics";
+		}
 
 		return (
 			<div className="row">

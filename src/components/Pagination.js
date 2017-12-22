@@ -11,9 +11,14 @@ const Pagination = ({ numPhotos, currentPage, onChange }) => {
 		);
 	}
 	return (
-		<select className="form-control" onChange={onChange}>
-			{pages}
-		</select>
+		<form>
+			<div className="form-group">
+				<label htmlFor="pageNumSelect">Select a page</label>
+				<select className="form-control" id="pageNumSelect" onChange={onChange}>
+					{pages}
+				</select>
+			</div>
+		</form>
 	);
 };
 
