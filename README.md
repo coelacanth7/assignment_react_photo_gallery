@@ -1,6 +1,6 @@
-# assignment_react_photo_gallery
+# React with searchable instagram photos
 
-Finally we can search and sort all our selfies using React
+Search through just a few instagram photos in this practice react app.
 
 Gregory Alford
 
